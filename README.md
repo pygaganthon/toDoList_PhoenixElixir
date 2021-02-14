@@ -6,6 +6,7 @@ To start your Phoenix server:
   * Create and migrate your database with `mix ecto.setup`
   * Install Node.js dependencies with `npm install` inside the `assets` directory
   * Start Phoenix endpoint with `mix phx.server`
+  * Use pgAdmin to start view db in postgres server , username: postgres , password: admin1234 , 5432 port
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
