@@ -1,0 +1,7 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= text_input f, :input, placeholder: "What do you want to do?",  class: "new-todo", autofocus: "" %>
+  <div style="display: none;">
+    <%= submit "Save" %>
+  </div>
+
+<% end %>

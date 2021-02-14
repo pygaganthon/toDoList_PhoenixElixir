@@ -1,0 +1,40 @@
+
+
+<section class="todoapp">
+			<header class="header">
+				
+				<%= if @editing.id do %>
+					<a href="<%= Routes.task_path(@conn, :index) %>" class="new-todo">
+						Update already existing task!
+					</a>
+				<% else %>
+					<%= render "form.html", Map.put(assigns, :action, Routes.task_path(@conn, :create)) %>
+				<% end %>
+			</header>
+			<section class="main" style="display: block;">
+				<ul class="todo-list">
+					<%= for task <- @tasks do %>
+						<li data-id="<%= task.id %>" class="<%= complete(task) %>">
+
+						 <a href="<%= Routes.task_path(@conn, :toggle, task.id) %>"
+							class="toggle <%= checked(task) %>">
+							</a>
+
+
+							<div class="view">
+								<%= if task.id == @editing.id do %>
+									<%= render "form.html", Map.put(assigns, :action,
+										Routes.task_path(@conn, :update, task)) %>
+								<% else %>
+									<a href="<%= Routes.task_path(@conn, :edit, task) %>" class="dblclick">
+										<label><%= task.input %></label>
+									</a>
+								<span></span>
+								<% end %>
+								
+							</div>
+						</li>
+					<% end %>
+				</ul>
+			</section>
+		</section>
